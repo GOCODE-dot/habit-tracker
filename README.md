@@ -30,7 +30,10 @@ of past days, drag-to-reorder habits, and dark mode.
   buttons (touch) to reorder habits; persisted via `/api/habit/reorder`.
 - **Dark mode** — toggle in the top-right corner; remembers your choice.
 - **Mobile & tablet friendly** — responsive layout, sticky habit-name
-  column, bigger tap targets, and 16px inputs to avoid iOS auto-zoom.
+  column, bigger tap targets, and 16px inputs to avoid iOS auto-zoom. Touch
+  sizing is detected via `pointer: coarse` / `hover: none`, so it applies on
+  any touch device — phone or tablet, portrait or landscape — not just
+  narrow screens.
 
 ## Data model
 
@@ -134,3 +137,7 @@ deploys:
 - Because completions are stored against real dates/weeks rather than
   array positions, your history is permanent: scrolling into a new month
   or week just changes which periods the grid displays, nothing is lost.
+
+## Credit
+
+Made by **Sazid Hasan Shshail**.
