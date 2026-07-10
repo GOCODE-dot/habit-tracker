@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.env
+data/state.json
+data/tracker.db
+data/tracker.db-wal
+data/tracker.db-shm
+.venv/
