@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="author" content="Sazid Hasan Shshail">
 <title>Habit Tracker</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -343,10 +344,27 @@
   }
   tr:hover .del-x{opacity:0.6;}
   .del-x:hover{opacity:1 !important;}
-  /* Touch devices can't hover — keep delete controls reachable, hide the (mouse-only) drag handle */
-  @media (hover:none){
-    .del-x{opacity:0.55;padding:4px 4px 4px 8px;}
+  /* Touch devices (phones AND tablets) can't hover — make every control comfortably tappable
+     regardless of screen width, and hide the mouse-only drag handle in favor of the ▲▼ buttons */
+  @media (hover:none), (pointer:coarse){
+    .del-x{opacity:0.55;padding:6px 6px 6px 8px;font-size:16px;}
     .drag-handle{display:none;}
+    .reorder-btns button{font-size:13px;padding:4px 6px;}
+    .chk{width:23px;height:23px;border-radius:6px;}
+    .chk.checked::after{left:7px;top:3px;width:5px;height:10px;}
+    .goal-cell input{width:40px;padding:6px 2px;font-size:14px;}
+    thead th{padding:9px 5px;}
+    tbody td{padding:9px 5px;}
+    .move-up, .move-down{min-width:22px;min-height:18px;}
+    .theme-toggle{width:42px;height:42px;}
+    .heatmap-tabs button{padding:6px 12px;}
+    .story-nav{width:42px;}
+    .timer-controls select,
+    .timer-controls input[type=number],
+    .add-row input,
+    .goal-cell input{font-size:16px;} /* prevents iOS Safari auto-zoom on focus */
+    .toggle-item input[type=checkbox]{width:18px;height:18px;}
+    .toggle-item{font-size:13px;}
   }
 
   .goal-cell input{
@@ -411,6 +429,16 @@
     color:var(--text-soft);
     font-size:12px;
     margin-top:24px;
+    line-height:1.6;
+  }
+  footer .credit{
+    margin-top:6px;
+    font-size:11.5px;
+    color:var(--text-mid);
+  }
+  footer .credit strong{
+    color:var(--header-dark);
+    font-weight:600;
   }
 
   .flash{ animation: flashPulse 0.9s ease-in-out 2; }
@@ -790,7 +818,10 @@
     </div>
   </div>
 
-  <footer>Tap a box to check it off · drag ⋮⋮ to reorder · progress rings and streaks update live · your data is saved on the server</footer>
+  <footer>
+    Tap a box to check it off · drag ⋮⋮ (or use ▲▼ on touch) to reorder · progress rings and streaks update live · your data is saved on the server
+    <div class="credit">Made by <strong>Sazid Hasan Shshail</strong></div>
+  </footer>
 </div>
 <div class="save-indicator" id="saveIndicator">Saved</div>
 
